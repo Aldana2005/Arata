@@ -19,32 +19,42 @@
 
 3. Crea un entorno virtual (se recomienda usar virtualenv):
 
-  `python -m venv venv`
+  ```bash
+  python -m venv venv
+```
   
 4. Activa el entorno virtual:
 
   - En Windows:
 
-    `venv\Scripts\activate`
+   ```bash
+    venv\Scripts\activate
+   ```
     
   - En Unix o MacOS:
 
-
+```bash
 `source venv/bin/activate`
+```
 
 5. Instala las dependencias:
 
-
+```bash
 `pip install -r requirements.txt`
+```
 
 6. Aplica las migraciones:
 
-
+```baash
 `python manage.py migrate`
+```
+
 7. Uso
     - Ejecuta el servidor de desarrollo:
 
+```bash
 `python manage.py runserver`
+```
 El proyecto estará disponible en http://localhost:8000/.
 
 8. Contribuciones
