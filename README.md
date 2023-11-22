@@ -8,7 +8,9 @@
 
 1. Clona este repositorio:
 
-   [git clone https://github.com/Aldana2005/Arata.git](https://github.com/Aldana2005/Arata.git)
+```bash
+   git clone https://github.com/Aldana2005/Arata.git
+```
 
 2. Ve al directorio del proyecto:
 
