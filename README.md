@@ -14,7 +14,8 @@
 2. Ve al directorio del proyecto:
 
 ```bash
-cd Arata
+   cd Arata
+```
 
 3. Crea un entorno virtual (se recomienda usar virtualenv):
 
