@@ -9,7 +9,7 @@
 1. Clona este repositorio:
 
    ```bash
-   [git clone https://github.com/tu_usuario/tu_proyecto.git](https://github.com/Aldana2005/Arata.git)https://github.com/Aldana2005/Arata.git
+   [git clone https://github.com/tu_usuario/tu_proyecto.git](https://github.com/Aldana2005/Arata.git)
 
 2. Ve al directorio del proyecto:
 
