@@ -13,7 +13,7 @@
 
 2. Ve al directorio del proyecto:
 
-bash
+```bash
 cd Arata
 
 3. Crea un entorno virtual (se recomienda usar virtualenv):
