@@ -1,31 +1,44 @@
 <!-- FILEPATH: ../Arata/Arata_app/templates/base.html -->
-
+{% load static %}
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Tu título aquí</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<html lang="es">
 
-    <!-- Boostrap 5.3 css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arata</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
+
 <body>
     <header>
-        <!-- Aquí puedes agregar tu encabezado -->
+        <h1>Arata Semillas</h1>
     </header>
 
+    <nav>
+        <a href="{% url 'inicio' %}">Inicio</a>
+        <a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a>
+        <a href="{% url 'servicios' %}">Servicios</a>
+        <a href="{% url 'contacto' %}">Contacto</a>
+    </nav>
+
     <main>
-        {% block content %}
-        <!-- Aquí se mostrará el contenido específico de cada página -->
+        <aside>
+            <h2>Barra lateral</h2>
+            <p>Contenido de la barra lateral.</p>
+        </aside>
+
+        {% block contenido %}
+        <section>
+            <h2>Sección principal</h2>
+            <p>Contenido de la sección principal.</p>
+        </section>
         {% endblock %}
     </main>
 
     <footer>
-        <!-- Aquí puedes agregar tu pie de página -->
+        <p>Derechos de autor © 2023 Arata semillas</p>
     </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
-    <!-- bootstrap 5.3 js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

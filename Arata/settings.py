@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'Arata.wsgi.application'
 # Base de datos
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}"""
+}
 
 """DATABASES = {
     'default': {
@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'Arata.wsgi.application'
     }
 }"""
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'arata_bd',
@@ -101,11 +101,8 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost', 
         'PORT': '3306',      # Puerto predeterminado de MySQL
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
     }
-}
+}"""
 
 
 # Validación de contraseñas

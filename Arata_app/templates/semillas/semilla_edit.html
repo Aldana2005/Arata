@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Editar{% else %}Nueva{% endif %} Semilla</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h2>{% if form.instance.pk %}Editar{% else %}Nueva{% endif %} Semilla</h2>
+    
+    {% if not ubicaciones %}
+        <p>No hay ubicaciones disponibles. <a href="{% url 'ubicacion_new' %}">Crear una ubicación</a></p>
+    {% endif %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">{% if form.instance.pk %}Guardar cambios{% else %}Agregar semilla{% endif %}</button>
+    </form>
+    
+    <a href="{% url 'semilla_list' %}">Cancelar</a>
+</body>
+</html>

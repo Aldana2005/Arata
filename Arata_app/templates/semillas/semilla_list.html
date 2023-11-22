@@ -1,0 +1,40 @@
+
+{% load static %}
+<!-- Boostrap 5.3 css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<!-- bootstrap 5.3 js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<h2>Semillas</h2>
+    
+{% for semilla in semillas %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'semilla_detail' pk=semilla.pk %}">{{ semilla.nombre }}</a></h5>
+            <p class="card-text">{{ semilla.variedad }}</p>
+            <!-- Agrega más detalles según tus necesidades -->
+        </div>
+    </div>
+{% endfor %}
+
+<!-- Mostrar paginación -->
+<div class="pagination">
+    <span class="step-links">
+        {% if semillas.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ semillas.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ semillas.number }} de {{ semillas.paginator.num_pages }}.
+        </span>
+
+        {% if semillas.has_next %}
+            <a href="?page={{ semillas.next_page_number }}">next</a>
+            <a href="?page={{ semillas.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+<a href="{% url 'semilla_new' %}" class="btn btn-primary">Agregar nueva semilla</a>
+
+

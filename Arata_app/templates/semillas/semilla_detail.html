@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ semilla.nombre }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h2>{{ semilla.nombre }}</h2>
+    <p>Variedad: {{ semilla.variedad }}</p>
+    <p>Origen: {{ semilla.origen }}</p>
+    <p>Características: {{ semilla.caracteristicas }}</p>
+    <!-- Agrega más detalles según tus necesidades -->
+    <a href="{% url 'semilla_edit' pk=semilla.pk %}">Editar</a>
+    <a href="{% url 'semilla_list' %}">Volver a la lista</a>
+</body>
+</html>
