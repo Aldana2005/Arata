@@ -33,3 +33,61 @@ db.sqlite3-journal
 /venv/
 venv/
 /venv
+
+# Virtual environment
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local development settings
+*.sqlite3
+*.db
+
+# Media files
+media/
+
+# Static files
+staticfiles/
+
+# Log files
+*.log
+
+# Ignore secret configuration files
+*.secret
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*
+
+# Ignore Docker Compose files
+docker-compose.yml
+docker-compose.override.yml
+
+# Ignore migration files
+**/migrations/
+
+# Ignore test database
+db.sqlite3
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
