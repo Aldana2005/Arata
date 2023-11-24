@@ -1,8 +1,20 @@
-@import url(fonts.css);
+@font-face {
+  font-family: 'VinaSans-Regular';
+  src: url('/static/fonts/VinaSans-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Signika-Regular';
+  src: url('/static/fonts/Signika-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
 
 body {
     margin: 0;
-    font-family: 'VinaSans-Regular';
+    font-family: 'Signika-Regular', sans-serif; 
     font-size: large;
   }
 
@@ -22,6 +34,8 @@ body {
   nav a {
     color: #fff;
     text-decoration: none;
+    font-family: 'VinaSans-Regular' !important;
+    letter-spacing: 2px;
   }
 
   main {
