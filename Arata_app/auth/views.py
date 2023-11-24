@@ -12,3 +12,6 @@ def registro(request):
     else:
         form = UsuarioRegistroForm()
     return render(request, 'usuarios/registro.html', {'form': form})
+
+def login(request):
+    return render(request, 'auth/login.html', {})

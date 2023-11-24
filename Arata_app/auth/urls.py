@@ -13,4 +13,5 @@ urlpatterns = [
 
     # Cierre de sesión
     path('cerrar_sesion/', auth_views.LogoutView.as_view(), name='cerrar_sesion'),
+    path('login/', views.login , name='login'),
 ]

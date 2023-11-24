@@ -1,6 +1,9 @@
+@import url(fonts.css);
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'VinaSans-Regular';
+    font-size: large;
   }
 
   header {
@@ -13,7 +16,6 @@ body {
   nav {
     display: flex;
     justify-content: space-around;
-    background-color: #555;
     padding: 10px;
   }
 
@@ -26,15 +28,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 20px;
   }
 
   section {
     flex: 1;
-    margin: 10px;
-    padding: 20px;
     background-color: #f0f0f0;
     border-radius: 5px;
+    margin-left: 10px;
+    padding: 30px;
   }
 
   aside {

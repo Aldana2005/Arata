@@ -8,10 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arata</title>
     <link rel="shortcut icon" href="{% static  'img/log.png' %}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofGJ+co6UmphdFXTLZ+fl4eCERdPfclCO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofGJ+co6UmphdFXTLZ+fl4eCERdPfclCO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -20,25 +23,46 @@
 </head>
 
 <body>
-    <header>
-        <img src="{% static  'img/log.png' %}" width="90pt">
-        <h1>Arata Semillas</h1>
-        
-        
+    <header class="rounded-bottom-3">
+        <div class="row">
+            <div class="col-3">
+                <div class="d-flex align-items-center">
+                    <img src="{% static  'img/log.png' %}" width="100pt">
+                    <h3 class="mx-3">Arata Semillas</h3>
+                </div>
+            </div>
+            <div class="col-9 d-flex align-items-center justify-content-end ">
+                <nav>
+                    <a href="{% url 'inicio' %}" class="mx-5">
+                        <i class="fas fa-home"></i>
+                        Inicio
+                    </a>
+                    <a href="{% url 'sobre_nosotros' %}" class="mx-5">
+                        <i class="fas fa-user"></i>
+                        Sobre nosotros
+                    </a>
+                    <a href="{% url 'servicios' %}" class="mx-5">
+                        <i class="fas fa-hand-holding"></i>
+                        Servicios
+                    </a>
+                    <a href="{% url 'contacto' %}" class="mx-5">
+                        <i class="fas fa-phone"></i>
+                        Contacto
+                    </a>
+                    <a href="{% url 'login' %}" class="mx-5">
+                        <i class="fas fa-arrow-right"></i>
+                        Ingresar
+                    </a>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <nav >
-        <a href="{% url 'inicio' %}">Inicio</a>
-        <a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a>
-        <a href="{% url 'servicios' %}">Servicios</a>
-        <a href="{% url 'contacto' %}">Contacto</a>
-   
-    
-    </nav>
-    
-      
 
-    <main>
+
+
+
+    <main class="p-2">
         <aside>
             <h2>Barra lateral</h2>
             <p>Contenido de la barra lateral.</p>
@@ -46,21 +70,56 @@
 
         {% block contenido %}
         <section>
-            <h2>Sección principal</h2>
-            <p>Contenido de la sección principal.</p>
+            <h1>Arata Semillas</h1>
+
+            <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+            <div id="container-slider">
+                <a href="javascript: funcionEjecutar('anterior');" class="arrowPrev"><i
+                        class="fas fa-chevron-circle-left"></i></a>
+                <a href="javascript: funcionEjecutar('siguiente');" class="arrowNext"><i
+                        class="fas fa-chevron-circle-right"></i></a>
+                <ul class="listslider">
+                    <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
+                    <li><a itlist="itList_1" href="#"></a></li>
+                    <li><a itlist="itList_2" href="#"></a></li>
+                </ul>
+                <ul id="slider">
+                    <li style="background-image: url('imagenes/01.jpg'); z-index:0; opacity: 1;">
+                        <div class="content_slider">
+                            <div>
+                                <h2>Imagen 1</h2>
+                                <p>Escribe el texto que aparecerá sobre la imagen número 1.</p>
+                                <a href="https://www.migueltroyano.com" target="_blank" class="btnSlider">Acceder</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="background-image: url('imagenes/02.jpg'); ">
+                        <div class="content_slider">
+                            <div>
+                                <h2>Imagen 2</h2>
+                                <p>Escribe el texto que aparecerá sobre la imagen número 2</p>
+                                <a href="https://www.migueltroyano.com" target="_blank" class="btnSlider">Acceder</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="background-image: url('imagenes/03.jpg'); ">
+                        <div class="content_slider">
+                            <div>
+                                <h2>Imagen 3</h2>
+                                <p>Escribe el texto que aparecerá sobre la imagen número 3</p>
+                                <a href="https://www.migueltroyano.com" target="_blank" class="btnSlider">Acceder</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
         </section>
         {% endblock %}
     </main>
 
-    <footer class="bg-dark text-center text-white">
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><svg
-                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
-                viewBox="0 0 16 16">
-                <path
-                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-            </svg></a>
 
-        <!-- Twitter -->
+    <footer class="bg-dark text-center text-white">
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><svg
                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
                 viewBox="0 0 16 16">
@@ -103,67 +162,10 @@
         <p>
             Venta de Semillas Arata
         </p>
-        <!-- Section: Text -->
-
-        <!-- Section: Links -->
-
-        <!--Grid row-->
-        <div class="row">
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Links</h5>
-
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="Hotel.html" class="text-white">Hotel</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Links</h5>
-
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="Nosotros.html" class="text-white">Nosotros</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Links</h5>
-
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="Servicios.html" class="text-white">Servicios</a>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Links</h5>
-
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="Contactos.html" class="text-white">Contactos</a>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
-        </div>
         <!--Grid row-->
         </section>
         <!-- Section: Links -->
         </div>
-        <!-- Grid container -->
 
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -171,6 +173,7 @@
         </div>
 
     </footer>
+    <script src="{% static 'js/funciones.js' %}"></script>
 </body>
 
 </html>
