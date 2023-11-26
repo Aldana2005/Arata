@@ -18,6 +18,7 @@ import statistics
 from django.contrib import admin
 from django.urls import path, include
 from Arata_app.semillas import urls as semillas_urls
+from Arata_app.auth import urls as auth_urls
 from Arata_app import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,6 +28,7 @@ from Arata import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('semillas/', include(semillas_urls)),
+    path('auth/', include(auth_urls)),
     path('', views.home, name='inicio'),
     path('sobre-nosotros/', views.sobre_nosotros, name='sobre_nosotros'),
     path('servicios/', views.servicios, name='servicios'),

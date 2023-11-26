@@ -1,6 +1,21 @@
+@font-face {
+  font-family: 'VinaSans-Regular';
+  src: url('/static/fonts/VinaSans-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Signika-Regular';
+  src: url('/static/fonts/Signika-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Signika-Regular', sans-serif; 
+    font-size: large;
   }
 
   header {
@@ -13,28 +28,28 @@ body {
   nav {
     display: flex;
     justify-content: space-around;
-    background-color: #555;
     padding: 10px;
   }
 
   nav a {
     color: #fff;
     text-decoration: none;
+    font-family: 'VinaSans-Regular' !important;
+    letter-spacing: 2px;
   }
 
   main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 20px;
   }
 
   section {
     flex: 1;
-    margin: 10px;
-    padding: 20px;
     background-color: #f0f0f0;
     border-radius: 5px;
+    margin-left: 10px;
+    padding: 30px;
   }
 
   aside {

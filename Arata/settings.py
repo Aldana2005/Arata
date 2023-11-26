@@ -15,6 +15,7 @@ from pathlib import Path
 
 # Construir rutas dentro del proyecto de esta manera: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 
 # Configuración rápida de desarrollo - no apta para producción
@@ -141,6 +142,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Arata_app/static')]
+
 
 # Configuración para recopilar archivos estáticos en producción
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
