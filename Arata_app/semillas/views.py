@@ -3,6 +3,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .seed import Semilla, Ubicacion
 from .forms import SemillaForm, UbicacionForm
 
+def home(request):
+    return render(request, 'semillas/base_semilla.html', {})
+
 def semilla_list(request):
     semillas = Semilla.objects.all()
 

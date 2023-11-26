@@ -139,10 +139,8 @@ USE_TZ = True
 # Archivos estáticos (CSS, JavaScript, imágenes)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Arata_app/static'),
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Arata_app/static')]
 
 # Configuración para recopilar archivos estáticos en producción
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

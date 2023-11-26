@@ -19,6 +19,8 @@ from django.contrib import admin
 from django.urls import path, include
 from Arata_app.semillas import urls as semillas_urls
 from Arata_app import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 from Arata import settings
 
@@ -30,3 +32,4 @@ urlpatterns = [
     path('servicios/', views.servicios, name='servicios'),
     path('contacto/', views.contacto, name='contacto'),
 ]
+

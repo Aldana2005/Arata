@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('semillas/', views.semilla_list, name='semilla_list'),
+    path('home/', views.home, name='home'),
     path('semilla/<int:pk>/', views.semilla_detail, name='semilla_detail'),
     path('semilla/new/', views.semilla_new, name='semilla_new'),
     path('semilla/<int:pk>/edit/', views.semilla_edit, name='semilla_edit'),
