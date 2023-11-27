@@ -8,7 +8,7 @@
         <h1 class="text-center">Iniciar sesión</h1>
 
         <div class="d-flex justify-content-center">
-          <form id="login-form" method="POST">
+          <form id="login-form" method="POST" action="{% url 'loginAuth' %}">
             {% csrf_token %}
             <div class="text-center">
               <div class="form-floating mb-3">
