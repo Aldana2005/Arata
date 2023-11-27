@@ -29,7 +29,10 @@
   - En Windows:
 
    ```bash
-       venv\Scripts\activate
+       cd venv\Scripts
+   ```
+   ```bash
+      activate
    ```
     
   - En Unix o MacOS:
