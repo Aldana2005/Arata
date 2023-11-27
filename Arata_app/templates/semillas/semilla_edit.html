@@ -1,12 +1,7 @@
+{% extends "semillas/base_semilla.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% if form.instance.pk %}Editar{% else %}Nueva{% endif %} Semilla</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <h2>{% if form.instance.pk %}Editar{% else %}Nueva{% endif %} Semilla</h2>
+{% block contenido %}
+    <h2>{% if semilla.pk %}Editar{% else %}Nueva{% endif %} Semilla</h2>
     
     {% if not ubicaciones %}
         <p>No hay ubicaciones disponibles. <a href="{% url 'ubicacion_new' %}">Crear una ubicación</a></p>
@@ -14,10 +9,21 @@
 
     <form method="POST" action="">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="button">{% if form.instance.pk %}Guardar cambios{% else %}Agregar semilla{% endif %}</button>
+        <label for="id_nombre">Nombre:</label>
+        <input type="text" name="nombre" id="id_nombre" value="{{ semilla.nombre }}" required>
+        
+        <label for="id_descripcion">Descripción:</label>
+        <textarea name="descripcion" id="id_descripcion" required>{{ semilla.descripcion }}</textarea>
+
+        <label for="id_ubicacion">Ubicación:</label>
+        <select name="ubicacion" id="id_ubicacion" required>
+            {% for ubicacion in ubicaciones %}
+                <option value="{{ ubicacion.id }}" {% if semilla.ubicacion.id == ubicacion.id %}selected{% endif %}>{{ ubicacion.nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="button">{% if semilla.pk %}Guardar cambios{% else %}Agregar semilla{% endif %}</button>
     </form>
     
     <a href="{% url 'semilla_list' %}">Cancelar</a>
-</body>
-</html>
+{% endblock %}

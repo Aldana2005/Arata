@@ -42,15 +42,15 @@ def semilla_edit(request, pk):
     ubicaciones = Ubicacion.objects.all()
 
     if request.method == "POST":
-        form = SemillaForm(request.POST, instance=semilla)
-        if form.is_valid():
-            semilla = form.save(commit=False)
-            semilla.save()
-            return redirect('semilla_detail', pk=semilla.pk)
-    else:
-        form = SemillaForm(instance=semilla)
+        semilla.nombre = request.POST.get('nombre')
+        semilla.descripcion = request.POST.get('descripcion')
+        ubicacion_id = request.POST.get('ubicacion')
+        semilla.ubicacion = get_object_or_404(Ubicacion, id=ubicacion_id)
 
-    return render(request, 'semillas/semilla_edit.html', {'form': form, 'ubicaciones': ubicaciones})
+        semilla.save()
+        return redirect('semilla_detail', pk=semilla.pk)
+
+    return render(request, 'semillas/semilla_edit.html', {'semilla': semilla, 'ubicaciones': ubicaciones})
 
 def semilla_delete(request, pk):
     semilla = get_object_or_404(Semilla, pk=pk)

@@ -5,61 +5,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestion Semillas</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/sidebar.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" />
   </head>
   <body>
 
-
-    <div class="navigation">
-      <div class="menuToggle">
-        <ul>
-          <li class="list active" style="--clr:#f44336;">
-            <a href="#">
-              <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-              <span class="text">Home</span>
-            </a>
-          </li>
-          <li class="list" style="--clr:#ffa117;">
-            <a href="#">
-              <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-              <span class="text">About</span>
-            </a>
-          </li>
-          <li class="list" style="--clr:#0fc70f;">
-            <a href="#">
-              <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-              <span class="text">Message</span>
-            </a>
-          </li>
-          <li class="list" style="--clr:#2496f3;">
-            <a href="#">
-              <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
-              <span class="text">Photos</span>
-            </a>
-          </li>
-          <li class="list" style="--clr:#b145e9;">
-            <a href="#">
-              <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-              <span class="text">Setting</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <script>
-      const menuToggle = document.querySelector(".menuToggle");
-      const navigation = document.querySelector(".navigation");
-
-      menuToggle.onclick = function () {
-        navigation.classList.toggle("open");
-      };
-
-      const list = document.querySelectorAll('.list');
-      function activeLink(){
+    <main class="dashboard">
+      <aside class="sidebar">
         
-      }
-    </script>
+        <div class="logo-action-container">
+          <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" />
+          </div>
+          <div class="action">
+            <ion-icon name="settings-outline"></ion-icon>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li><a href="{% url 'semilla_list' %}">Inicio</a></li>
+            <li><a href="{% url 'semilla_new' %}">Agregar Semilla</a></li>
+            <li><a href="{% url 'ubicacion_new' %}">Agregar Ubicacion</a></li>
+            <!-- Agrega más enlaces según tus necesidades -->
+          </ul>
+        </nav>
+
+      </aside>
+      
+      <section class="main-content">
+        <header class="main-header">
+          <h1>Bienvenido al Dashboard</h1>
+          <p>Control total de tu sistema</p>
+        </header>
+
+        <!-- Aquí coloca el contenido principal de tu dashboard -->
+        {% block contenido %}
+        {% endblock %}
+
+      </section>
+    </main>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

@@ -154,3 +154,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirigir a la URL de inicio después de iniciar sesión (Por defecto, redirige a /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+# configuración de autenticación de Django
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
