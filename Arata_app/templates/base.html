@@ -24,6 +24,8 @@
 </head>
 
 <body>
+
+
     <header class="rounded-bottom-3">
         <div class="row">
             <div class="col-3">
@@ -34,7 +36,7 @@
             </div>
             <div class="col-9 d-flex align-items-center justify-content-end ">
                 <nav>
-                    <a href="{% url 'inicio' %}" class="mx-3 btn btn-outline-light btn-floating m-1">
+                    <a href="{% url 'home' %}" class="mx-3 btn btn-outline-light btn-floating m-1">
                         <i class="fas fa-home"></i>
                         Inicio
                     </a>
@@ -60,14 +62,9 @@
     </header>
 
 
-
-
-
     <main class="p-2">
 
         {% block contenido %}
-        
-
         
         <section>
             <h1>Arata Semillas</h1>
@@ -115,7 +112,10 @@
             </div>
 
         </section>
+
         {% endblock %}
+
+
     </main>
 
 
@@ -168,6 +168,8 @@
         </div>
 
     </footer>
+
+    
     <script src="{% static 'js/funciones.js' %}"></script>
 </body>
 

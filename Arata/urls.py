@@ -14,24 +14,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import statistics
+
 from django.contrib import admin
 from django.urls import path, include
-from Arata_app.semillas import urls as semillas_urls
 from Arata_app.auth import urls as auth_urls
 from Arata_app import views
-from django.conf import settings
-from django.conf.urls.static import static
-
-from Arata import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('semillas/', include(semillas_urls)),
     path('auth/', include(auth_urls)),
-    path('', views.home, name='inicio'),
+    path('', views.inicio, name='inicio'),
     path('sobre-nosotros/', views.sobre_nosotros, name='sobre_nosotros'),
     path('servicios/', views.servicios, name='servicios'),
     path('contacto/', views.contacto, name='contacto'),
+
+    path('semillas/', views.semilla_list, name='semilla_list'),
+    path('home/', views.home, name='home'), 
+    path('semilla/<int:pk>/', views.semilla_detail, name='semilla_detail'),
+    path('semilla/new/', views.semilla_new, name='semilla_new'),
+    path('semilla/<int:pk>/edit/', views.semilla_edit, name='semilla_edit'),
+    path('semilla/<int:pk>/delete/', views.semilla_delete, name='semilla_delete'),
+    path('ubicacion/new/', views.ubicacion_new, name='ubicacion_new'),
+    
 ]
 

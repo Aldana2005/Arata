@@ -1,11 +1,40 @@
-{% extends "semillas/base_semilla.html" %}
-{% load static %}
-{% block contenido %}
-    <h2>Nueva Ubicación</h2>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar Ubicación</button>
-    </form>
-    <a href="{% url 'semilla_new' %}">Volver</a>
+{% extends "semillas/base_semilla.html" %} {% load static %} {% block contenido %}
+<header class="main-header">
+  <h1 class="text-center titulo">Nueva Ubicación</h1>
+</header>
+<a href="{% url 'semilla_new' %}" class="btn btn-outline-primary">
+  <ion-icon name="arrow-undo-outline"></ion-icon>
+  Volver
+</a>
+<div class="d-flex justify-content-center pt-2">
+  <form method="POST" action="" class="form-control text-center w-50 p">
+    {% csrf_token %}
+    <div class="form-floating mb-1">
+      {{ form.latitud}}
+      <label for="{{ form.latitud.id_for_label }}" class="form-label">Latitud:</label>
+    </div>
+    <div class="form-floating mb-1">
+      {{ form.longitud }}
+      <label for="{{ form.longitud.id_for_label }}" class="form-label">Longitud:</label>
+    </div>
+    <div class="form-floating mb-1">
+      {{ form.horario }}
+      <label for="{{ form.horario.id_for_label }}" class="form-label">Horario:</label>
+    </div>
+    <div class="form-floating mb-1">
+      {{ form.contacto }}
+      <label for="{{ form.contacto.id_for_label }}" class="form-label">Contacto:</label>
+    </div>
+    <div class="form-floating mb-1">
+      {{ form.municipio }}
+      <label for="{{ form.municipio.id_for_label }}" class="form-label">Municipio:</label>
+    </div>
+    <div class="form-floating mb-1">
+      {{ form.departamento }}
+      <label for="{{ form.departamento.id_for_label }}" class="form-label">Departamento:</label>
+    </div>
+    <button type="submit" class="btn btn-outline-dark"><ion-icon name="save-outline"></ion-icon> Guardar Ubicación</button>
+  </form>
+</div>
+
 {% endblock %}

@@ -151,11 +151,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Redirigir a la URL de inicio después de iniciar sesión (Por defecto, redirige a /accounts/profile/)
-LOGIN_REDIRECT_URL = '/'
-
-# configuración de autenticación de Django
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-]

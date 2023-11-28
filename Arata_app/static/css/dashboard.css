@@ -1,19 +1,41 @@
 /* Reset de estilos */
+
+@font-face {
+  font-family: 'VinaSans-Regular';
+  src: url('/static/fonts/VinaSans-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Signika-Regular';
+  src: url('/static/fonts/Signika-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
 body, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
 }
 
+
+
 body {
-  font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
   min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura visible */
   margin: 0; /* Elimina márgenes por defecto para asegurar un ajuste perfecto */
   display: flex;
 }
 
+
+.titulo{
+  font-family: VinaSans-Regular;
+}
+
 .dashboard {
   display: flex;
+  width: 100%;
+  font-family: Signika-Regular;
 }
 
 .sidebar {
@@ -72,6 +94,65 @@ body {
 .main-header p {
   font-size: 16px;
   color: #777;
+}
+
+/* ------------------------------------------------------------------- */
+.logout-link {
+  margin-top: 20px; /* Ajusta el espaciado superior según tus preferencias */
+}
+
+.logout-link a {
+  display: flex;
+  align-items: center;
+  color: #fff; /* Cambia el color de texto según tu paleta de colores */
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-link a:hover {
+  background-color: #555; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.logout-link ion-icon {
+  margin-right: 8px; /* Ajusta el espaciado entre el ícono y el texto */
+}
+
+
+/* ------------------------------------------------------------------- */
+
+.dashboard-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #3498db; /* Cambia el color según tu paleta de colores */
+}
+
+.card-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 16px;
+  color: #555; /* Cambia el color según tu paleta de colores */
 }
 
 /* Puedes agregar más estilos según tus necesidades */
