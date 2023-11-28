@@ -10,7 +10,7 @@ class Semilla(models.Model):
     estado = models.BooleanField(default=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     cantidad_disponible = models.IntegerField()
-    ubicacion = models.OneToOneField('Ubicacion', on_delete=models.CASCADE)
+    ubicacion = models.ForeignKey('Ubicacion', on_delete=models.CASCADE)
     
     
     def __str__(self):

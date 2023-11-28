@@ -1,29 +1,55 @@
 {% extends "semillas/base_semilla.html" %}
 {% load static %}
 {% block contenido %}
-    <h2>{% if semilla.pk %}Editar{% else %}Nueva{% endif %} Semilla</h2>
-    
+<header class="main-header">
+    <h1 class="text-center titulo">{% if semilla.pk %}Editar{% else %}Nueva{% endif %} Semilla</h1>
+</header> 
+<a href="{% url 'semilla_list' %}" class="btn btn-outline-primary">
+    <ion-icon name="close-circle-outline"></ion-icon>
+    Cancelar
+</a>
     {% if not ubicaciones %}
         <p>No hay ubicaciones disponibles. <a href="{% url 'ubicacion_new' %}">Crear una ubicación</a></p>
     {% endif %}
 
-    <form method="POST" action="">
+    <div class="d-flex justify-content-center pt-2">
+    <form method="POST" action="" class="form-control text-center w-50 p">
         {% csrf_token %}
-        <label for="id_nombre">Nombre:</label>
-        <input type="text" name="nombre" id="id_nombre" value="{{ semilla.nombre }}" required>
-        
-        <label for="id_descripcion">Descripción:</label>
-        <textarea name="descripcion" id="id_descripcion" required>{{ semilla.descripcion }}</textarea>
+        <div class="form-floating mb-1">
+            <input type="text" name="nombre" id="id_nombre" value="{{ semilla.nombre }}" required placeholder="Nombre" class="form-control">
+            <label for="id_nombre" class="form-label">Nombre:</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input type="text" name="variedad" id="id_variedad" value="{{ semilla.variedad }}" required placeholder="Variedad" class="form-control">
+            <label for="id_variedad" class="form-label">Variedad:</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input type="text" name="origen" id="id_origen" value="{{ semilla.origen }}" required placeholder="Origen" class="form-control">
+            <label for="id_origen" class="form-label">Origen:</label>
+        </div>
+        <div class="form-floating mb-1">
+            <textarea name="caracteristicas" id="id_caracteristicas" required class="form-control" placeholder="Características">{{ semilla.caracteristicas }}</textarea>
+            <label for="id_caracteristicas" class="form-label">Características:</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input type="number" name="precio" id="id_precio" value="{{ semilla.precio }}" required placeholder="Precio" class="form-control">
+            <label for="id_precio" class="form-label">Precio:</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input type="number" name="cantidad_disponible" id="id_cantidad_disponible" value="{{ semilla.cantidad_disponible }}" required placeholder="Cantidad Disponible" class="form-control">
+            <label for="id_cantidad_disponible" class="form-label">Cantidad Disponible:</label>
+        </div>
+        <div class="form-floating mb-1">
+            <select name="ubicacion" id="id_ubicacion" required class="form-select">
+                {% for ubicacion in ubicaciones %}
+                    <option value="{{ ubicacion.id }}" {% if semilla.ubicacion.id == ubicacion.id %}selected{% endif %}>{{ ubicacion.contacto }}</option>
+                {% endfor %}
+            </select>
+            <label for="id_ubicacion" class="form-label">Ubicación:</label>
+        </div>
 
-        <label for="id_ubicacion">Ubicación:</label>
-        <select name="ubicacion" id="id_ubicacion" required>
-            {% for ubicacion in ubicaciones %}
-                <option value="{{ ubicacion.id }}" {% if semilla.ubicacion.id == ubicacion.id %}selected{% endif %}>{{ ubicacion.nombre }}</option>
-            {% endfor %}
-        </select>
-
-        <button type="submit" class="button">{% if semilla.pk %}Guardar cambios{% else %}Agregar semilla{% endif %}</button>
+        <button type="submit" class="btn btn-outline-dark">{% if semilla.pk %}Guardar cambios{% else %}Agregar semilla{% endif %}</button>
     </form>
+</div>
     
-    <a href="{% url 'semilla_list' %}">Cancelar</a>
 {% endblock %}

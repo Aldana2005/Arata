@@ -1,41 +1,38 @@
-{% extends "semillas/base_semilla.html" %}
-{% load static %}
-{% block contenido %}
+{% extends "semillas/base_semilla.html" %} {% load static %} {% block contenido %}
 <div>
   <header class="main-header">
-    <h1>Semillas</h1>
+    <h1 class="text-center titulo">Semillas</h1>
   </header>
-
-  {% for semilla in semillas %}
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">
-        <a href="{% url 'semilla_detail' pk=semilla.pk %}">{{ semilla.nombre }}</a>
-      </h5>
-      <p class="card-text">{{ semilla.variedad }}</p>
-      <!-- Agrega más detalles según tus necesidades -->
-    </div>
-  </div>
-  {% endfor %}
-
-  <!-- Mostrar paginación -->
-  <div class="pagination">
-    <span class="step-links">
-      {% if semillas.has_previous %}
-      <a href="?page=1">&laquo; first</a>
-      <a href="?page={{ semillas.previous_page_number }}">previous</a>
-      {% endif %}
-
-      <span class="current"> Página {{ semillas.number }} de {{ semillas.paginator.num_pages }}. </span>
-
-      {% if semillas.has_next %}
-      <a href="?page={{ semillas.next_page_number }}">next</a>
-      <a href="?page={{ semillas.paginator.num_pages }}">last &raquo;</a>
-      {% endif %}
-    </span>
+  <div class="d-flex justify-content-center pt-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Variedad</th>
+          <!-- Agrega más columnas según tus necesidades -->
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for semilla in semillas %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td><a href="{% url 'semilla_detail' pk=semilla.pk %}">{{ semilla.nombre }}</a></td>
+          <td>{{ semilla.variedad }}</td>
+          <!-- Agrega más columnas según tus necesidades -->
+          <td>
+            <!-- Agrega enlaces o botones para acciones como editar o eliminar -->
+            <a href="{% url 'semilla_edit' pk=semilla.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+            <a href="{% url 'semilla_delete' pk=semilla.pk %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
   <div class="text-center">
-      <a href="{% url 'semilla_new' %}" class="btn btn-primary">Agregar nueva semilla</a>
+    <a href="{% url 'semilla_new' %}" class="btn btn-primary">Agregar nueva semilla</a>
   </div>
 </div>
 {% endblock %}

@@ -40,20 +40,21 @@ def semilla_detail(request, pk):
     return render(request, 'semillas/semilla_detail.html', {'semilla': semilla})
 
 def semilla_new(request):
+    ubicaciones = Ubicacion.objects.all()
     if request.method == "POST":
         form = SemillaForm(request.POST)
         if form.is_valid():
-            semilla = form.save(commit=False)
-            semilla.save()
+            semilla = form.save()
             return redirect('semilla_detail', pk=semilla.pk)
+        else:
+            print(form.errors)
     else:
         form = SemillaForm()
-    return render(request, 'semillas/semilla_edit.html', {'form': form})
+    return render(request, 'semillas/semilla_edit.html', {'form': form, 'ubicaciones': ubicaciones})
 
 def semilla_edit(request, pk):
     semilla = get_object_or_404(Semilla, pk=pk)
     ubicaciones = Ubicacion.objects.all()
-    print(ubicaciones)
 
     if request.method == "POST":
         semilla.nombre = request.POST.get('nombre')
