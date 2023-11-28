@@ -50,6 +50,9 @@
 6. Aplica las migraciones:
 
 ```bash
+   python manage.py makemigrations
+```
+```bash
    python manage.py migrate
 ```
 
